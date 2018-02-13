@@ -8,13 +8,9 @@ import com.app.a2.studio.android.stuff.your.order.orderyourstuff.R;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private BaseDeDatos db;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
-        db = new BaseDeDatos(this);
     }
 }
