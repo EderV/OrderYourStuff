@@ -5,9 +5,6 @@ import android.os.Bundle;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private int a;
-    private String s;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
