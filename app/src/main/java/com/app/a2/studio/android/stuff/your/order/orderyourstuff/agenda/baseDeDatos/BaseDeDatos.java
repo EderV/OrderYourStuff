@@ -1,4 +1,4 @@
-package com.app.a2.studio.android.stuff.your.order.orderyourstuff.BaseDeDatos;
+package com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.baseDeDatos;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

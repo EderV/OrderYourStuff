@@ -1,4 +1,4 @@
-package com.app.a2.studio.android.stuff.your.order.orderyourstuff.BaseDeDatos;
+package com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.baseDeDatos;
 
 
 // Clase para definir las strings necesarias para la base de datos

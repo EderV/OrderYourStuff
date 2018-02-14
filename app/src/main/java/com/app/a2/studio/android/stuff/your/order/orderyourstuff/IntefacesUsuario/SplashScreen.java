@@ -3,7 +3,6 @@ package com.app.a2.studio.android.stuff.your.order.orderyourstuff.IntefacesUsuar
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.app.a2.studio.android.stuff.your.order.orderyourstuff.BaseDeDatos.BaseDeDatos;
 import com.app.a2.studio.android.stuff.your.order.orderyourstuff.R;
 
 public class SplashScreen extends AppCompatActivity {
