@@ -6,9 +6,13 @@ import com.app.a2.studio.android.stuff.your.order.orderyourstuff.R;
 
 public class MainScreen extends AppCompatActivity {
 
+    private int anInt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+
+        anInt = 32;
     }
 }
