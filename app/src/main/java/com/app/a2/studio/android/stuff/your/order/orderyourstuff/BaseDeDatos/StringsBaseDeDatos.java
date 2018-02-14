@@ -10,8 +10,6 @@ public abstract class StringsBaseDeDatos {
     public static final int DATABASE_VERSION = 1;
     public static final String TABLA_ALRMAS = "Tabla de alarmas";
 
-    // Garai me la come del reves
-
     // Columnas de la tabla
     public static final int PRIMARY_KEY = 0;
     public static final String NOMBRE_ALARMA = "Nombre";
