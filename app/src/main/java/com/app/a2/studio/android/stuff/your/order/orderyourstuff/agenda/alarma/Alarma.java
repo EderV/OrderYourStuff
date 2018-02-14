@@ -1,12 +1,14 @@
 package com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.alarma;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Propietario on 14/02/2018.
  */
 
 public class Alarma {
+
     //  Atributos
     private static int _totalID = 0;
     private int _myID;
@@ -53,10 +55,9 @@ public class Alarma {
 
     //
     public boolean esAlarmaPerdida(){
-        boolean b=false;
-        Calendar today;
-        //  Incompleto
-        return b;
+        Calendar c=null;
+        c.setTime(new Date());
+        return this._horaAlarma.after(c);
     }
 
     //  Getters
@@ -66,6 +67,16 @@ public class Alarma {
         return _myID;
     }
 
+    //
+
+    public String get_asunto() {
+        return _asunto;
+    }
+
+    //
+    public String get_descripcion() {
+        return _descripcion;
+    }
 
     //
     public Calendar getHoraAlarma(){
