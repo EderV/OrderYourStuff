@@ -52,7 +52,6 @@ public class Alarma {
         }
     }
 
-
     //
     public boolean esAlarmaPerdida(){
         Calendar c=null;
