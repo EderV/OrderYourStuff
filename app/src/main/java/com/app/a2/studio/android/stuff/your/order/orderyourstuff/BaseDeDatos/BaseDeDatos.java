@@ -4,10 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-//  Comentario david
-//  Comentario Eder
-public class BaseDeDatos extends SQLiteOpenHelper {
+// Base de datos unica de la app
 
+public class BaseDeDatos extends SQLiteOpenHelper {
 
     public BaseDeDatos(Context context) {
         super(context, StringsBaseDeDatos.DATABASE_NAME, null, StringsBaseDeDatos.DATABASE_VERSION);
