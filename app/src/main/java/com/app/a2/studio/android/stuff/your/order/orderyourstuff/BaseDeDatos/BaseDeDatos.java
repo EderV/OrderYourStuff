@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 //  Comentario david
+//  Comentario Eder
 public class BaseDeDatos extends SQLiteOpenHelper {
 
 
