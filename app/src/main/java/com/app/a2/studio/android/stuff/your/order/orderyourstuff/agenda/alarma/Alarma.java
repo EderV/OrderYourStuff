@@ -8,7 +8,6 @@ import java.util.Date;
  */
 
 public class Alarma {
-
     //  Atributos
     private static int _totalID = 0;
     private int _myID;
@@ -66,16 +65,6 @@ public class Alarma {
         return _myID;
     }
 
-    //
-
-    public String get_asunto() {
-        return _asunto;
-    }
-
-    //
-    public String get_descripcion() {
-        return _descripcion;
-    }
 
     //
     public Calendar getHoraAlarma(){
