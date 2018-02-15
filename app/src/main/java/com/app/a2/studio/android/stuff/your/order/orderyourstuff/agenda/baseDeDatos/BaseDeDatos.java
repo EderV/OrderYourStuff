@@ -63,7 +63,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         return null;
     }
 
-    // Insertar una alarma devuelve true si lo ha insertado
+    // Insertar una alarma devuelve true si la ha insertado
     public boolean insertAlarm(Alarma alarma){
         return false;
     }
