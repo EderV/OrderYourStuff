@@ -11,7 +11,7 @@ public abstract class StringsBaseDeDatos {
     public static final String TABLA_ALRMAS = "Tabla de alarmas";
 
     // Columnas de la tabla
-    public static final int PRIMARY_KEY = 0;
+    public static final String PRIMARY_KEY = "UniqueID";
     public static final String NOMBRE_ALARMA = "Nombre";
     public static final String DESCRIPCION_ALARMA = "Descripcion";
     public static final String HORA_PROGRAMADA = "Hora";
@@ -22,4 +22,6 @@ public abstract class StringsBaseDeDatos {
                                         + NOMBRE_ALARMA + " TEXT NOT NULL,"
                                         + DESCRIPCION_ALARMA + " TEXT NOT NULL,"
                                         + HORA_PROGRAMADA + " TEXT NOT NULL )";
+
+    // Strings de actualizacion de base de datos
 }
