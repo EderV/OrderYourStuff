@@ -11,6 +11,9 @@ import com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.alarma.A
 
 public class BaseDeDatos extends SQLiteOpenHelper {
 
+    // Instancia de la clase alarma
+    Alarma[] alarma;
+
     public BaseDeDatos(Context context) {
         super(context, StringsBaseDeDatos.DATABASE_NAME, null, StringsBaseDeDatos.DATABASE_VERSION);
     }
@@ -27,12 +30,10 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     // Obtenemos toda la tabla de alarmas con un vector de Alarmas[]
     public Alarma[] getAllAlarmsFromTable(){
-        // Instancia de la clase alarma
-        Alarma alarma[];
 
         // Datos de las columnas
         int ID;
-        String nombre, descripcion, horaProgramada;
+        String nombre, descripcion, horaProgramada1, horaProgramada2, horaProgramada3;
 
         // Columnas de la tabla
         String clumnasAlarmas[] = {StringsBaseDeDatos.ID,
@@ -48,20 +49,22 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         // Recorremos la tabla con el cursor
 
         int cnt = 0;
-        /*
+
         if(c.moveToFirst()){
             do{
                 ID = c.getInt(0);
                 nombre = c.getString(1);
                 descripcion = c.getString(2);
-                horaProgramada = c.getString(3);
+                horaProgramada1 = c.getString(3);
+                horaProgramada2 = c.getString(4);
+                horaProgramada3 = c.getString(5);
 
                 // Falta rellenar array de alarmas
 
+                //alarma[cnt] = new Alarma()
                 cnt++;
             }while (c.moveToNext());
         }
-        */
         c.close();
         return null;
     }
