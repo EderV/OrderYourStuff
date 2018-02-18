@@ -35,10 +35,12 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         String nombre, descripcion, horaProgramada;
 
         // Columnas de la tabla
-        String clumnasAlarmas[] = {StringsBaseDeDatos.PRIMARY_KEY,
+        String clumnasAlarmas[] = {StringsBaseDeDatos.ID,
                                     StringsBaseDeDatos.NOMBRE_ALARMA,
                                     StringsBaseDeDatos.DESCRIPCION_ALARMA,
-                                    StringsBaseDeDatos.HORA_PROGRAMADA};
+                                    StringsBaseDeDatos.HORA_PROGRAMADA_1,
+                                    StringsBaseDeDatos.HORA_PROGRAMADA_2,
+                                    StringsBaseDeDatos.HORA_PROGRAMADA_3};
 
         // Cursor para recorrer las filas
         Cursor c = this.getReadableDatabase().query(StringsBaseDeDatos.TABLA_1, clumnasAlarmas, null, null, null, null, null);
@@ -46,7 +48,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         // Recorremos la tabla con el cursor
 
         int cnt = 0;
-
+        /*
         if(c.moveToFirst()){
             do{
                 ID = c.getInt(0);
@@ -59,7 +61,8 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 cnt++;
             }while (c.moveToNext());
         }
-
+        */
+        c.close();
         return null;
     }
 
