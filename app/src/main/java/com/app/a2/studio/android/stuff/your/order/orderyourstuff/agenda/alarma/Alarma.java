@@ -59,7 +59,15 @@ public class Alarma {
     //  Metodos
     @Override
     public boolean equals(Object obj) {
-        return ((obj instanceof Alarma) && (((Alarma) obj)._uniqueID == this._uniqueID || ((Alarma) obj)._nombre.equals((this._nombre))));
+        if (!(obj instanceof Alarma)){
+            return false;
+        }else {
+            if (((Alarma) obj)._uniqueID == this._uniqueID)
+                return true;
+            if (((Alarma) obj)._nombre.equals((this._nombre)))
+                return true;
+            return false;
+        }
     }
 
     /*
