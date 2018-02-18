@@ -12,9 +12,6 @@ import com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.alarma.A
 
 public class BaseDeDatos extends SQLiteOpenHelper {
 
-    // Instancia de la clase alarma
-    private Alarma[] alarma;
-
     public BaseDeDatos(Context context) {
         super(context, StringsBaseDeDatos.DATABASE_NAME, null, StringsBaseDeDatos.DATABASE_VERSION);
     }
@@ -46,6 +43,8 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
         // Cursor para recorrer las filas
         Cursor c = this.getReadableDatabase().query(StringsBaseDeDatos.TABLA_1, clumnasAlarmas, null, null, null, null, null);
+        // Instancia de la clase alarma
+        Alarma[] alarma = new Alarma[c.getCount()];
 
         // Recorremos la tabla con el cursor
         int cnt = 0;
