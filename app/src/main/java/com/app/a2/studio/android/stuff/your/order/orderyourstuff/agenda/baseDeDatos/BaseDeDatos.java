@@ -1,5 +1,6 @@
 package com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.baseDeDatos;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,7 +13,7 @@ import com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.alarma.A
 public class BaseDeDatos extends SQLiteOpenHelper {
 
     // Instancia de la clase alarma
-    Alarma[] alarma;
+    private Alarma[] alarma;
 
     public BaseDeDatos(Context context) {
         super(context, StringsBaseDeDatos.DATABASE_NAME, null, StringsBaseDeDatos.DATABASE_VERSION);
@@ -47,11 +48,11 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         Cursor c = this.getReadableDatabase().query(StringsBaseDeDatos.TABLA_1, clumnasAlarmas, null, null, null, null, null);
 
         // Recorremos la tabla con el cursor
-
         int cnt = 0;
 
         if(c.moveToFirst()){
             do{
+                // Obtenemos con el cursor todas las columnas
                 ID = c.getInt(0);
                 nombre = c.getString(1);
                 descripcion = c.getString(2);
@@ -59,9 +60,10 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 horaProgramada2 = c.getString(4);
                 horaProgramada3 = c.getString(5);
 
-                // Falta rellenar array de alarmas
+                // Creamos el array de Alarmas con todas las alarmas de la BBDD
+                alarma[cnt] = new Alarma(nombre, descripcion, horaProgramada1, horaProgramada2, horaProgramada3);
+                alarma[cnt].set_uniqueID(ID);
 
-                //alarma[cnt] = new Alarma()
                 cnt++;
             }while (c.moveToNext());
         }
@@ -71,6 +73,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     // Insertar una alarma devuelve true si la ha insertado
     public boolean insertAlarm(Alarma alarma){
+        ContentValues contentValues = new ContentValues();
         return false;
     }
 }

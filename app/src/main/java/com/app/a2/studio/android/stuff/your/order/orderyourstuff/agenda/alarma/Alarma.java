@@ -7,9 +7,8 @@ import java.util.Date;
 
 public class Alarma {
     //  Atributos
-    private static long _totalID = 0;
     
-    private long _myID;
+    private long _uniqueID;
     private String _nombre;
     private String _descripcion;
 
@@ -32,7 +31,6 @@ public class Alarma {
         this._haSonado1=false;
         this._haSonado2=false;
         this._haSonado3=false;
-        _myID = ++_totalID;
     }
 
     public Alarma(String _nombre, String _descripcion, String _horaProgramada1, String _horaProgramada2){
@@ -44,7 +42,6 @@ public class Alarma {
         this._haSonado1=false;
         this._haSonado2=false;
         this._haSonado3=false;
-        _myID = ++_totalID;
     }
 
     public Alarma(String _nombre, String _descripcion, String _horaProgramada1, String _horaProgramada2, String _horaProgramada3){
@@ -56,14 +53,13 @@ public class Alarma {
         this._haSonado1=false;
         this._haSonado2=false;
         this._haSonado3=false;
-        _myID = ++_totalID;
     }
 
 
     //  Metodos
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Alarma && (((Alarma) obj)._myID == this._myID || ((Alarma) obj)._nombre.equals((this._nombre)));
+        return ((obj instanceof Alarma) && (((Alarma) obj)._uniqueID == this._uniqueID || ((Alarma) obj)._nombre.equals((this._nombre))));
     }
 
     /*
@@ -76,7 +72,7 @@ public class Alarma {
 
     //  Getters
     public long get_myID() {
-        return _myID;
+        return _uniqueID;
     }
 
     public String get_nombre() {
@@ -113,6 +109,9 @@ public class Alarma {
 
 
     //  Setters
+    public void set_uniqueID(long _uniqueID) {
+        this._uniqueID = _uniqueID;
+    }
 
     public void set_nombre(String _nombre) {
         this._nombre = _nombre;

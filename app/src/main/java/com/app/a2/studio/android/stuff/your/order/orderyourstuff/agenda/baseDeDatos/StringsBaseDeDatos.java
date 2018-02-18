@@ -20,7 +20,7 @@ public abstract class StringsBaseDeDatos {
 
     // String creadora de la tabla
     public static final String TABLA_1 = "CREATE TABLE + " + TABLA_ALRMAS + " ("
-                                        + ID + " INTEGER,"
+                                        + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                                         + NOMBRE_ALARMA + " TEXT NOT NULL,"
                                         + DESCRIPCION_ALARMA + " TEXT NOT NULL,"
                                         + HORA_PROGRAMADA_1 + " TEXT NOT NULL, "
