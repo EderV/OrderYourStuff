@@ -19,8 +19,10 @@ public class SplashScreen extends AppCompatActivity {
 
     private void metodo(){
         int a = 0, b = 0;
-        a = a + 2;
-        b = b + a;
+        boolean es;
+        a=a++;
+        b=++b;
+        es=(a==b);
     }
 
 }
