@@ -73,7 +73,31 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     // Insertar una alarma devuelve true si la ha insertado
     public boolean insertAlarm(Alarma alarma){
+        SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        return false;
+
+        long ID;
+        String nombre, descripcion, hora1, hora2, hora3;
+
+        // Traemos los datos de la clase alarma
+        ID = alarma.get_uniqueID();
+        nombre = alarma.get_nombre();
+        descripcion = alarma.get_descripcion();
+        hora1 = alarma.get_horaProgramada1();
+        hora2 = alarma.get_horaProgramada2();
+        hora3 = alarma.get_horaProgramada3();
+
+        // Ponemos los datos en el contentValues
+        contentValues.put(StringsBaseDeDatos.ID, ID);
+        contentValues.put(StringsBaseDeDatos.NOMBRE_ALARMA, nombre);
+        contentValues.put(StringsBaseDeDatos.DESCRIPCION_ALARMA, descripcion);
+        contentValues.put(StringsBaseDeDatos.HORA_PROGRAMADA_1, hora1);
+        contentValues.put(StringsBaseDeDatos.HORA_PROGRAMADA_2, hora2);
+        contentValues.put(StringsBaseDeDatos.HORA_PROGRAMADA_3, hora3);
+
+        // Insertamos en la BBDD
+        long result = db.insert(StringsBaseDeDatos.TABLA_1, null, contentValues);
+
+        return (result == -1);
     }
 }

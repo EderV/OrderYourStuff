@@ -79,7 +79,7 @@ public class Alarma {
     */
 
     //  Getters
-    public long get_myID() {
+    public long get_uniqueID() {
         return _uniqueID;
     }
 
