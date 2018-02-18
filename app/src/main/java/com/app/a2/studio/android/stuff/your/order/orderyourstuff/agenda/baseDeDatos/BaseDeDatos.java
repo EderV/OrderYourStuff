@@ -26,7 +26,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     }
 
     // Obtenemos toda la tabla de alarmas con un vector de Alarmas[]
-    public Alarma[] getAllAlarmsTable(){
+    public Alarma[] getAllAlarmsFromTable(){
         // Instancia de la clase alarma
         Alarma alarma[];
 
@@ -56,7 +56,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 descripcion = c.getString(2);
                 horaProgramada = c.getString(3);
 
-                // Falta rellenar array de alarmas y convertir la string de horaProgramada a Calendar
+                // Falta rellenar array de alarmas
 
                 cnt++;
             }while (c.moveToNext());
