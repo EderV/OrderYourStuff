@@ -3,75 +3,146 @@ package com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.alarma;
 import java.util.Calendar;
 import java.util.Date;
 
+// Formato para las horas " hh,mm,ss;dia;mes;año "
 
 public class Alarma {
     //  Atributos
-    private static int _totalID = 0;
-    private int _myID;
-    private String _asunto;
+    private static long _totalID = 0;
+    
+    private long _myID;
+    private String _nombre;
     private String _descripcion;
-    private boolean _haSonado;
-    private Calendar _horaAlarma;
 
-    //  Constructor sin alarma
-    public Alarma(String _asunto, String _descripcion) {
-        this._asunto=_asunto;
+    private boolean _haSonado1;
+    private boolean _haSonado2;
+    private boolean _haSonado3;
+
+    private String _horaProgramada1;
+    private String _horaProgramada2;
+    private String _horaProgramada3;
+
+
+    //  Constructores
+    public Alarma(String _nombre, String _descripcion, String _horaProgramada1){
+        this._nombre=_nombre;
         this._descripcion=_descripcion;
-        _horaAlarma=null;
-        _haSonado=false;
+        this._horaProgramada1=_horaProgramada1;
+        this._horaProgramada2="NULL";
+        this._horaProgramada3="NULL";
+        this._haSonado1=false;
+        this._haSonado2=false;
+        this._haSonado3=false;
         _myID = ++_totalID;
     }
 
-    //  Constructor con alarma
-    public Alarma(String _asunto, String _descripcion, Calendar _horaAlarma){
-        this._asunto=_asunto;
+    public Alarma(String _nombre, String _descripcion, String _horaProgramada1, String _horaProgramada2){
+        this._nombre=_nombre;
         this._descripcion=_descripcion;
-        this._horaAlarma=_horaAlarma;
-        this._haSonado=false;
+        this._horaProgramada1=_horaProgramada1;
+        this._horaProgramada2=_horaProgramada2;
+        this._horaProgramada3="NULL";
+        this._haSonado1=false;
+        this._haSonado2=false;
+        this._haSonado3=false;
         _myID = ++_totalID;
     }
+
+    public Alarma(String _nombre, String _descripcion, String _horaProgramada1, String _horaProgramada2, String _horaProgramada3){
+        this._nombre=_nombre;
+        this._descripcion=_descripcion;
+        this._horaProgramada1=_horaProgramada1;
+        this._horaProgramada2=_horaProgramada2;
+        this._horaProgramada3=_horaProgramada3;
+        this._haSonado1=false;
+        this._haSonado2=false;
+        this._haSonado3=false;
+        _myID = ++_totalID;
+    }
+
+
     //  Metodos
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Alarma)) {
-            return false;
-        } else {
-            if (((Alarma) obj)._myID == this._myID) {
-                return true;
-            } else {
-                if (((Alarma) obj)._asunto.equals((this._asunto))) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }
+        return obj instanceof Alarma && (((Alarma) obj)._myID == this._myID || ((Alarma) obj)._nombre.equals((this._nombre)));
     }
 
-    //
+    /*
     public boolean esAlarmaPerdida(){
         Calendar c=null;
         c.setTime(new Date());
         return this._horaAlarma.after(c);
     }
+    */
 
     //  Getters
-
-    //
-    public int getID() {
+    public long get_myID() {
         return _myID;
     }
 
-
-    //
-    public Calendar getHoraAlarma(){
-        return _horaAlarma;
+    public String get_nombre() {
+        return _nombre;
     }
+
+    public String get_descripcion() {
+        return _descripcion;
+    }
+
+    public boolean is_haSonado1() {
+        return _haSonado1;
+    }
+
+    public boolean is_haSonado2() {
+        return _haSonado2;
+    }
+
+    public boolean is_haSonado3() {
+        return _haSonado3;
+    }
+
+    public String get_horaProgramada1() {
+        return _horaProgramada1;
+    }
+
+    public String get_horaProgramada2() {
+        return _horaProgramada2;
+    }
+
+    public String get_horaProgramada3() {
+        return _horaProgramada3;
+    }
+
 
     //  Setters
 
-    //
-    public void setHaSonado(){
-        this._haSonado=true;
+    public void set_nombre(String _nombre) {
+        this._nombre = _nombre;
+    }
+
+    public void set_descripcion(String _descripcion) {
+        this._descripcion = _descripcion;
+    }
+
+    public void set_haSonado1(boolean _haSonado1) {
+        this._haSonado1 = _haSonado1;
+    }
+
+    public void set_haSonado2(boolean _haSonado2) {
+        this._haSonado2 = _haSonado2;
+    }
+
+    public void set_haSonado3(boolean _haSonado3) {
+        this._haSonado3 = _haSonado3;
+    }
+
+    public void set_horaProgramada1(String _horaProgramada1) {
+        this._horaProgramada1 = _horaProgramada1;
+    }
+
+    public void set_horaProgramada2(String _horaProgramada2) {
+        this._horaProgramada2 = _horaProgramada2;
+    }
+
+    public void set_horaProgramada3(String _horaProgramada3) {
+        this._horaProgramada3 = _horaProgramada3;
     }
 }
