@@ -46,6 +46,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         // Instancia de la clase alarma
         Alarma[] alarma = new Alarma[c.getCount()];
 
+
         // Recorremos la tabla con el cursor
         int cnt = 0;
 
