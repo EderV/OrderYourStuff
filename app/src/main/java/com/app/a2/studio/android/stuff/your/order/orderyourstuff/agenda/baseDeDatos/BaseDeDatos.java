@@ -4,7 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.alarma.Alarma;
 
@@ -97,7 +99,28 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
         // Insertamos en la BBDD
         long result = db.insert(StringsBaseDeDatos.TABLA_1, null, contentValues);
-
+        db.close();
         return (result == -1);
+    }
+
+    // Editar alarma de la base de datos
+    public void updateAlarm(long ID, String nombre, String descripcion, String hora1, String hora2, String hora3){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        try {
+            String stringID = String.valueOf(ID);
+            // Pasamos los valores al contenedor
+            cv.put(StringsBaseDeDatos.NOMBRE_ALARMA, nombre);
+            cv.put(StringsBaseDeDatos.DESCRIPCION_ALARMA, descripcion);
+            cv.put(StringsBaseDeDatos.HORA_PROGRAMADA_1, hora1);
+            cv.put(StringsBaseDeDatos.HORA_PROGRAMADA_2, hora2);
+            cv.put(StringsBaseDeDatos.HORA_PROGRAMADA_3, hora3);
+
+            // Actualizamos la tabla
+            db.update(StringsBaseDeDatos.TABLA_1, cv, "UniqueID = ?", new String[]{ stringID });
+        }catch (SQLiteException e){
+            Log.e("Error BBDD", e.toString());
+        }
     }
 }
