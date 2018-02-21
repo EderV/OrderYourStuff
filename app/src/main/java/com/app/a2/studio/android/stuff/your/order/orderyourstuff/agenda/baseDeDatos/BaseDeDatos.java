@@ -82,7 +82,6 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         String nombre, descripcion, hora1, hora2, hora3;
 
         // Traemos los datos de la clase alarma
-        ID = alarma.get_uniqueID();
         nombre = alarma.get_nombre();
         descripcion = alarma.get_descripcion();
         hora1 = alarma.get_horaProgramada1();
@@ -90,7 +89,6 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         hora3 = alarma.get_horaProgramada3();
 
         // Ponemos los datos en el contentValues
-        contentValues.put(StringsBaseDeDatos.ID, ID);
         contentValues.put(StringsBaseDeDatos.NOMBRE_ALARMA, nombre);
         contentValues.put(StringsBaseDeDatos.DESCRIPCION_ALARMA, descripcion);
         contentValues.put(StringsBaseDeDatos.HORA_PROGRAMADA_1, hora1);
