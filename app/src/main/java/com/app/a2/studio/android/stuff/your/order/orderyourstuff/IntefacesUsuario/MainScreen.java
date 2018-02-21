@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.app.a2.studio.android.stuff.your.order.orderyourstuff.R;
 
@@ -98,5 +99,14 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void makeText(String _text, String _duration){
+        if (_duration == "short"){
+            Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_LONG).show();
+        }
     }
 }
