@@ -66,6 +66,10 @@ public class Agenda {
         list.add(alarma);
     }
 
+    public void deleteAlarm(long ID){
+
+    }
+
     public int getNumeroAlarmas(){
         return (list.size());
     }
