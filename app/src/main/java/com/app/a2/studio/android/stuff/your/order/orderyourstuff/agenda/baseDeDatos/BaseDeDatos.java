@@ -74,7 +74,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     }
 
     // Insertar una alarma devuelve true si la ha insertado
-    public boolean insertAlarm(Alarma alarma){
+    public void insertAlarm(Alarma alarma){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -100,7 +100,10 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         // Insertamos en la BBDD
         long result = db.insert(StringsBaseDeDatos.TABLA_1, null, contentValues);
         db.close();
-        return (result == -1);
+
+        if (result == -1){
+            Log.e("SQLException", "No se logro insertar el dato");
+        }
     }
 
     // Editar alarma de la base de datos
