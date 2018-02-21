@@ -14,7 +14,7 @@ public class Agenda {
     private BaseDeDatos db;
     private List<Alarma> list;
     private Alarma alarma;
-    private static Agenda _ag=null;
+    private static Agenda _ag = null;
 
     // Constructor
     private Agenda(Context context){
@@ -66,7 +66,7 @@ public class Agenda {
         list.add(alarma);
     }
 
-    public void deleteAlarm(long ID){
+    public void deleteAlarm(int ID){
 
     }
 

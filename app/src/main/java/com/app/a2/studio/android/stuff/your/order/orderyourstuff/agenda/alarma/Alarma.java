@@ -8,7 +8,7 @@ import java.util.Date;
 public class Alarma {
     //  Atributos
     
-    private long _uniqueID;
+    private int _uniqueID;
     private String _nombre;
     private String _descripcion;
 
@@ -117,7 +117,7 @@ public class Alarma {
 
 
     //  Setters
-    public void set_uniqueID(long _uniqueID) {
+    public void set_uniqueID(int _uniqueID) {
         this._uniqueID = _uniqueID;
     }
 

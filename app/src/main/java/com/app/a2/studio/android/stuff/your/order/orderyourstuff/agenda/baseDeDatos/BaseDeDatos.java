@@ -79,7 +79,6 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        long ID;
         String nombre, descripcion, hora1, hora2, hora3;
 
         // Traemos los datos de la clase alarma
