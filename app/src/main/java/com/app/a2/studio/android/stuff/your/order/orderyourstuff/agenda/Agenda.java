@@ -14,11 +14,19 @@ public class Agenda {
     private BaseDeDatos db;
     private List<Alarma> list;
     private Alarma alarma;
+    private static Agenda _ag=null;
 
     // Constructor
-    public Agenda(Context context){
+    private Agenda(Context context){
         db = new BaseDeDatos(context);
         list = new ArrayList<>();
+    }
+    // Singleton
+    public Agenda ag(Context context){
+        if (_ag == null){
+            _ag = new Agenda(context);
+        }
+        return _ag;
     }
 
     // Metodos

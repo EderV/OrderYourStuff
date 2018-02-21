@@ -14,16 +14,8 @@ import com.app.a2.studio.android.stuff.your.order.orderyourstuff.agenda.alarma.A
 
 public class BaseDeDatos extends SQLiteOpenHelper {
 
-    private static BaseDeDatos bd=null;
 
-    public BaseDeDatos getBD(Context context){
-        if (bd==null){
-            bd= new BaseDeDatos(context);
-        }
-        return bd;
-    }
-
-    private BaseDeDatos(Context context) {
+    public BaseDeDatos(Context context) {
         super(context, StringsBaseDeDatos.DATABASE_NAME, null, StringsBaseDeDatos.DATABASE_VERSION);
     }
 
