@@ -22,7 +22,7 @@ public class Agenda {
         list = new ArrayList<>();
     }
     // Singleton
-    public Agenda ag(Context context){
+    public Agenda getAgenda(Context context){
         if (_ag == null){
             _ag = new Agenda(context);
         }
