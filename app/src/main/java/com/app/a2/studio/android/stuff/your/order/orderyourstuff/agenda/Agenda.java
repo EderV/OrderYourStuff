@@ -30,7 +30,7 @@ public class Agenda {
     }
 
     // Metodos
-    public void createNewAlarm(String nombre, String descipcion, String horaProgramada1){
+    public boolean createNewAlarm(String nombre, String descipcion, String horaProgramada1){
         if(list.isEmpty()){
             // Si el array esta vacio, lo rellenamos con toda la BBDD
             list = Arrays.asList(db.getAllAlarmsFromTable());
@@ -38,11 +38,17 @@ public class Agenda {
 
         // Creamos la alarma y la añadimos a la BBDD y al List
         alarma = new Alarma(nombre, descipcion, horaProgramada1);
-        db.insertAlarm(alarma);
-        list.add(alarma);
+        boolean a = db.insertAlarm(alarma);
+        if (a) {
+            list.add(alarma);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
-    public void createNewAlarm(String nombre, String descipcion, String horaProgramada1, String horaProgramada2){
+    public boolean createNewAlarm(String nombre, String descipcion, String horaProgramada1, String horaProgramada2){
         if(list.isEmpty()){
             // Si el array esta vacio, lo rellenamos con toda la BBDD
             list = Arrays.asList(db.getAllAlarmsFromTable());
@@ -50,11 +56,17 @@ public class Agenda {
 
         // Creamos la alarma y la añadimos a la BBDD y al List
         alarma = new Alarma(nombre, descipcion, horaProgramada1, horaProgramada2);
-        db.insertAlarm(alarma);
-        list.add(alarma);
+        boolean a = db.insertAlarm(alarma);
+        if (a) {
+            list.add(alarma);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
-    public void createNewAlarm(String nombre, String descipcion, String horaProgramada1, String horaProgramada2, String horaProgramada3){
+    public boolean createNewAlarm(String nombre, String descipcion, String horaProgramada1, String horaProgramada2, String horaProgramada3){
         if(list.isEmpty()){
             // Si el array esta vacio, lo rellenamos con toda la BBDD
             list = Arrays.asList(db.getAllAlarmsFromTable());
@@ -62,11 +74,21 @@ public class Agenda {
 
         // Creamos la alarma y la añadimos a la BBDD y al List
         alarma = new Alarma(nombre, descipcion, horaProgramada1, horaProgramada2, horaProgramada3);
-        db.insertAlarm(alarma);
-        list.add(alarma);
+        boolean a = db.insertAlarm(alarma);
+        if (a) {
+            list.add(alarma);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public void deleteAlarm(int ID){
+
+    }
+
+    public void updateAlarm(int ID, String nombre, String descripcion, String hora1, String hora2, String hora3){
 
     }
 
