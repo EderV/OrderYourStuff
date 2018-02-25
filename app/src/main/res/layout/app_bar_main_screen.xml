@@ -24,15 +24,20 @@
         android:id="@+id/include"
         layout="@layout/content_main_screen" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/floatingActionButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:clickable="true"
-        app:fab_size="normal"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="right|bottom"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        android:layout_margin="10dp">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ms_fab_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_menu_camera"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </android.support.design.widget.CoordinatorLayout>
