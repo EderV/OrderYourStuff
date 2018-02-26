@@ -123,13 +123,33 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
 
     @Override
     public boolean onMenuItemSelected(MenuItem menuItem) {
-        Intent intentRecognitionVoice = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "es");
+        switch (menuItem.getItemId()){
+            // Pulsado microfono
+            case(R.id.fabm_btn_mic):
+                // Intent de reconocimiento de voz
+                Intent intentRecognitionVoice = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 
-        try{
-            startActivityForResult(intentRecognitionVoice, 1);
-        } catch (ActivityNotFoundException e){
-            makeText("Tu dispositivo no soporta reconocimiento de voz", "long");
+                // Le decimos que solo escuche y devuelva el idioma castellano
+                intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "es-ES");
+                intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es");
+                intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "es");
+                intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE,"es");
+                intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_PROMPT,"Please start speaking...");
+
+                try{
+                    startActivityForResult(intentRecognitionVoice, 1);
+                } catch (ActivityNotFoundException e){
+                    makeText("Tu dispositivo no soporta reconocimiento de voz", "long");
+                }
+                break;
+
+            // Pulsado lapiz
+            case(R.id.fabm_btm_pencil):
+                makeText("Escirbir nota", "short");
+                break;
+
+                default:
+                    break;
         }
         return true;
     }
@@ -157,12 +177,12 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
         }
     }
 
-    private void makeText(String _text, String _duration){
-        if (_duration == "short"){
-            Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_SHORT).show();
+    private void makeText(String text, String duration){
+        if (duration == "short"){
+            Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
         }
     }
 }
