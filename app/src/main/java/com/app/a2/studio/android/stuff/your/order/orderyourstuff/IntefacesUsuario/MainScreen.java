@@ -2,6 +2,7 @@ package com.app.a2.studio.android.stuff.your.order.orderyourstuff.IntefacesUsuar
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -18,7 +19,9 @@ import android.widget.Toast;
 
 import com.app.a2.studio.android.stuff.your.order.orderyourstuff.R;
 
-public class MainScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+import io.github.yavski.fabspeeddial.FabSpeedDial;
+
+public class MainScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, FabSpeedDial.MenuListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,8 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-        //fab.setOnClickListener(this);
+        FabSpeedDial fab = (FabSpeedDial) findViewById(R.id.ms_fab_fabBtn);
+        fab.setMenuListener(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -100,9 +103,6 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case(R.id.floatingActionButton):
-                Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                break;
 
             default:
                 break;
@@ -117,4 +117,23 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
             Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_LONG).show();
         }
     }
+
+    ///////////////////////////////////////////////
+    // Floating action button speed dial listener
+    @Override
+    public boolean onPrepareMenu(NavigationMenu navigationMenu) {
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemSelected(MenuItem menuItem) {
+        makeText(menuItem.getTitle().toString(), "short");
+        return true;
+    }
+
+    @Override
+    public void onMenuClosed() {
+
+    }
+    ///////////////////////////////////////////////
 }

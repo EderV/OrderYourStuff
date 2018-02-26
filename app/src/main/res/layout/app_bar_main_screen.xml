@@ -24,20 +24,18 @@
         android:id="@+id/include"
         layout="@layout/content_main_screen" />
 
-    <com.getbase.floatingactionbutton.FloatingActionsMenu
-        android:id="@+id/floatingActionButton"
+    <io.github.yavski.fabspeeddial.FabSpeedDial
+        android:id="@+id/ms_fab_fabBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="right|bottom"
-        android:layout_margin="10dp">
+        app:fabGravity="bottom_end"
+        app:fabMenu="@menu/fab_menu"
+        app:miniFabBackgroundTint="@android:color/white"
+        app:miniFabDrawableTint="?attr/colorPrimaryDark"
+        app:miniFabTitleTextColor="?attr/colorPrimaryDark">
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/ms_fab_item1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_icon="@drawable/ic_menu_camera"/>
-
-    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </io.github.yavski.fabspeeddial.FabSpeedDial>
 
 </android.support.design.widget.CoordinatorLayout>
