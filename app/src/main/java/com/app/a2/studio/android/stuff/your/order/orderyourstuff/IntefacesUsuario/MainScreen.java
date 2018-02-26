@@ -1,7 +1,10 @@
 package com.app.a2.studio.android.stuff.your.order.orderyourstuff.IntefacesUsuario;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +21,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.app.a2.studio.android.stuff.your.order.orderyourstuff.R;
+
+import java.util.ArrayList;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 
@@ -109,15 +114,6 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
         }
     }
 
-    private void makeText(String _text, String _duration){
-        if (_duration == "short"){
-            Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_LONG).show();
-        }
-    }
-
     ///////////////////////////////////////////////
     // Floating action button speed dial listener
     @Override
@@ -127,7 +123,14 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
 
     @Override
     public boolean onMenuItemSelected(MenuItem menuItem) {
-        makeText(menuItem.getTitle().toString(), "short");
+        Intent intentRecognitionVoice = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "es");
+
+        try{
+            startActivityForResult(intentRecognitionVoice, 1);
+        } catch (ActivityNotFoundException e){
+            makeText("Tu dispositivo no soporta reconocimiento de voz", "long");
+        }
         return true;
     }
 
@@ -136,4 +139,30 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
 
     }
     ///////////////////////////////////////////////
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            // Caso de que el resultado venga del reconocimiento de voz
+            case 1:
+                if (resultCode == RESULT_OK && null != data){
+                    ArrayList<String> speech = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    String strSpeech = speech.get(0);
+
+                    makeText(strSpeech, "long");
+                }
+                break;
+        }
+    }
+
+    private void makeText(String _text, String _duration){
+        if (_duration == "short"){
+            Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), _text, Toast.LENGTH_LONG).show();
+        }
+    }
 }

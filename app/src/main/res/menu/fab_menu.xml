@@ -3,14 +3,8 @@
 
     <item
         android:id="@+id/fabm_btn_1"
-        android:icon="@drawable/ic_menu_camera"
-        android:title="camera"
-        />
-
-    <item
-        android:id="@+id/fabm_btn_2"
-        android:icon="@drawable/ic_menu_camera"
-        android:title="camera_2"
+        android:icon="@drawable/ic_microfhone"
+        android:title="@string/fab_mic"
         />
 
 </menu>
