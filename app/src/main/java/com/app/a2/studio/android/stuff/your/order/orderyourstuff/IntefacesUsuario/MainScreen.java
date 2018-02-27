@@ -134,7 +134,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                 intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es");
                 intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "es");
                 intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE,"es");
-                intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_PROMPT,"Please start speaking...");
+                intentRecognitionVoice.putExtra(RecognizerIntent.EXTRA_PROMPT,"Habla para crear tu nota...");
 
                 try{
                     startActivityForResult(intentRecognitionVoice, 1);
