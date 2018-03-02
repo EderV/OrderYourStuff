@@ -34,8 +34,7 @@
         app:fabMenu="@menu/fab_menu"
         app:miniFabBackgroundTint="@android:color/white"
         app:miniFabDrawableTint="?attr/colorPrimaryDark"
-        app:miniFabTitleTextColor="?attr/colorPrimaryDark"
-        app:fabDrawable="@drawable/ic_pencil">
+        app:miniFabTitleTextColor="?attr/colorPrimaryDark">
 
     </io.github.yavski.fabspeeddial.FabSpeedDial>
 
