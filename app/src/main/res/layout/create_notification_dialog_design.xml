@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cndd_tv_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/alertDialogDesignDialogTitle"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/cndd_et_NotifTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/alertDialogDesignTitle" />
+
+    <EditText
+        android:id="@+id/cndd_et_Description"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/alertDialogDesignDescription"
+        android:inputType="textPersonName" />
+
+</LinearLayout>
