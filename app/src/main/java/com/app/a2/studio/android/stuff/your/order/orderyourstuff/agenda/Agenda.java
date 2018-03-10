@@ -41,6 +41,7 @@ public class Agenda {
         boolean a = db.insertAlarm(alarma);
         if (a) {
             list.add(alarma);
+            setIDToNewAlarm();
             return true;
         }
         else {
@@ -59,6 +60,7 @@ public class Agenda {
         boolean a = db.insertAlarm(alarma);
         if (a) {
             list.add(alarma);
+            setIDToNewAlarm();
             return true;
         }
         else {
@@ -77,6 +79,7 @@ public class Agenda {
         boolean a = db.insertAlarm(alarma);
         if (a) {
             list.add(alarma);
+            setIDToNewAlarm();
             return true;
         }
         else {
@@ -89,11 +92,32 @@ public class Agenda {
     }
 
     public void updateAlarm(int ID, String nombre, String descripcion, String hora1, String hora2, String hora3){
+        if(list.isEmpty()){
+            // Si el array esta vacio, lo rellenamos con toda la BBDD
+            list = Arrays.asList(db.getAllAlarmsFromTable());
+        }
+        // Actualizamos la alarma dentro de la BBDD
+        db.updateAlarm(ID, nombre, descripcion, hora1, hora2, hora3);
 
+        // Actualizamos la alarma dentro del list ............Completar.................. y solucionar problema del index
+                                                                                            // porque el index no tiene porque coincidir con la UniqueID
     }
 
     public int getNumeroAlarmas(){
         return (list.size());
+    }
+
+    private void setIDToNewAlarm(){
+
+        //................Solucionar bugazo porque no siempre tendremos elementos......................
+
+        // Necesitamos establecer la ID de la alarma manualmente ya que hasta que no entra en la BBDD no se le añade una
+
+        // Obtenemos el index del ultimo elemento del list
+        int lastElement = list.size() - 1;
+
+        // Añadimos el ID al ultimo elemento que coincide con la longitud del list
+        list.get(lastElement).set_uniqueID(list.size());
     }
 
 }
