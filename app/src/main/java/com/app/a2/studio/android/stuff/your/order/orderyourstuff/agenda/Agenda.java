@@ -15,11 +15,13 @@ public class Agenda {
     private List<Alarma> list;
     private Alarma alarma;
     private static Agenda _ag = null;
+    private static int IDforNewAlarm;
 
     // Constructor
     private Agenda(Context context){
         db = new BaseDeDatos(context);
         list = new ArrayList<>();
+        IDforNewAlarm = 0;
     }
     // Singleton
     public Agenda getAgenda(Context context){
@@ -40,8 +42,10 @@ public class Agenda {
         alarma = new Alarma(nombre, descipcion, horaProgramada1);
         boolean a = db.insertAlarm(alarma);
         if (a) {
+            // Establecemos la ID a la nueva alarma e incrementamos el ID para una nueva futura alarma
+            alarma.set_uniqueID(IDforNewAlarm);
+            IDforNewAlarm++;
             list.add(alarma);
-            setIDToNewAlarm();
             return true;
         }
         else {
@@ -59,8 +63,10 @@ public class Agenda {
         alarma = new Alarma(nombre, descipcion, horaProgramada1, horaProgramada2);
         boolean a = db.insertAlarm(alarma);
         if (a) {
+            // Establecemos la ID a la nueva alarma e incrementamos el ID para una nueva futura alarma
+            alarma.set_uniqueID(IDforNewAlarm);
+            IDforNewAlarm++;
             list.add(alarma);
-            setIDToNewAlarm();
             return true;
         }
         else {
@@ -78,8 +84,10 @@ public class Agenda {
         alarma = new Alarma(nombre, descipcion, horaProgramada1, horaProgramada2, horaProgramada3);
         boolean a = db.insertAlarm(alarma);
         if (a) {
+            // Establecemos la ID a la nueva alarma e incrementamos el ID para una nueva futura alarma
+            alarma.set_uniqueID(IDforNewAlarm);
+            IDforNewAlarm++;
             list.add(alarma);
-            setIDToNewAlarm();
             return true;
         }
         else {
@@ -105,19 +113,6 @@ public class Agenda {
 
     public int getNumeroAlarmas(){
         return (list.size());
-    }
-
-    private void setIDToNewAlarm(){
-
-        //................Solucionar bugazo porque no siempre tendremos elementos......................
-
-        // Necesitamos establecer la ID de la alarma manualmente ya que hasta que no entra en la BBDD no se le añade una
-
-        // Obtenemos el index del ultimo elemento del list
-        int lastElement = list.size() - 1;
-
-        // Añadimos el ID al ultimo elemento que coincide con la longitud del list
-        list.get(lastElement).set_uniqueID(list.size());
     }
 
 }
