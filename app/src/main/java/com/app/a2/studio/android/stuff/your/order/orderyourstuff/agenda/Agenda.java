@@ -100,6 +100,9 @@ public class Agenda {
     }
 
     public void updateAlarm(int ID, String nombre, String descripcion, String hora1, String hora2, String hora3){
+        // Obtenemos el index para acceder al list
+        int index = obtainIndex(ID);
+
         if(list.isEmpty()){
             // Si el array esta vacio, lo rellenamos con toda la BBDD
             list = Arrays.asList(db.getAllAlarmsFromTable());
@@ -107,12 +110,32 @@ public class Agenda {
         // Actualizamos la alarma dentro de la BBDD
         db.updateAlarm(ID, nombre, descripcion, hora1, hora2, hora3);
 
-        // Actualizamos la alarma dentro del list ............Completar.................. y solucionar problema del index
-                                                                                            // porque el index no tiene porque coincidir con la UniqueID
+        // Actualizamos la alarma dentro del list
+        list.get(index).set_nombre(nombre);
+        list.get(index).set_descripcion(descripcion);
+        list.get(index).set_horaProgramada1(hora1);
+        list.get(index).set_horaProgramada2(hora2);
+        list.get(index).set_horaProgramada3(hora3);
     }
 
     public int getNumeroAlarmas(){
         return (list.size());
+    }
+
+    private int obtainIndex(int alarmID){
+        int index = 0;
+        boolean founded = false;
+
+        do {
+            if (list.get(index).get_uniqueID() == alarmID){
+                founded = true;
+            }
+            else {
+                index++;
+            }
+        }while (index <= list.size() - 1 || founded);
+
+        return index;
     }
 
 }
