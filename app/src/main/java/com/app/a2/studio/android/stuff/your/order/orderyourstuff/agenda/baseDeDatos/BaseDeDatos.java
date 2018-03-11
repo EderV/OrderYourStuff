@@ -99,12 +99,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         long result = db.insert(StringsBaseDeDatos.TABLA_1, null, contentValues);
         db.close();
 
-        if (result == -1){
-            return false;
-        }
-        else {
-            return true;
-        }
+        return (result != -1);
     }
 
     // Editar alarma de la base de datos
@@ -126,5 +121,11 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         }catch (SQLiteException e){
             Log.e("Error BBDD", e.toString());
         }
+    }
+
+    public boolean deleteAlarm(int alarmID){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        return (db.delete(StringsBaseDeDatos.TABLA_1, "UniqueID = ?", new String[] { String.valueOf(alarmID) }) > 0);
     }
 }
